@@ -11,11 +11,10 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello, World!');
 });
 
+app.use((req: Request, res: Response, next) => {
+  res.status(404).send('Not Found');
+});
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-});
-
-app.use((req: Request, res: Response, next) => {
-  res.status(404).send('Not Found');
 });
